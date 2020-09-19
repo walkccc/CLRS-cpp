@@ -71,12 +71,18 @@ void transplant(BST& T, TreeNode* u, TreeNode* v) {
 
 TreeNode* treePredecessor(BST& T, TreeNode* x) {
   if (x->left != nullptr) return treeMaximum(x->left);
-  TreeNode* y = parent(T, x);
-  while (y != nullptr && x == y->left) {
-    x = y;
-    y = parent(T, y);
+  TreeNode* y = T.root;
+  TreeNode* pred = nullptr;
+  while (y != nullptr) {
+    if (y->key == x->key) break;
+    if (y->key < x->key) {
+      pred = y;
+      y = y->right;
+    } else {
+      y = y->left;
+    }
   }
-  return y;
+  return pred;
 }
 
 void treeDelete(BST& T, TreeNode* z) {
