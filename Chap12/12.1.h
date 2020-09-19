@@ -2,8 +2,9 @@
 #define ch12_1_h
 
 #include <stack>
+
 #include "../print.h"
-#include "Node.h"
+#include "TreeNode.h"
 
 using std::stack;
 
@@ -29,7 +30,7 @@ using std::stack;
 
 namespace CLRS {
 namespace CH12 {
-void inorderTreeWalk(Node* x) {
+void inorderTreeWalk(TreeNode* x) {
   if (x != nullptr) {
     inorderTreeWalk(x->left);
     print(x->key);
@@ -37,9 +38,9 @@ void inorderTreeWalk(Node* x) {
   }
 }
 
-void iterativeInorderTreeWalkWithStack(Node* x) {
-  stack<Node*> stack;
-  Node* curr = x;
+void iterativeInorderTreeWalkWithStack(TreeNode* x) {
+  stack<TreeNode*> stack;
+  TreeNode* curr = x;
   while (curr || !stack.empty()) {
     while (curr) {
       stack.push(curr);
@@ -52,20 +53,20 @@ void iterativeInorderTreeWalkWithStack(Node* x) {
   }
 }
 
-void iterativeInorderTreeWalkWithoutStack(Node* x) {
+void iterativeInorderTreeWalkWithoutStack(TreeNode* x) {
   if (x == nullptr) return;
 
-  Node* curr = x;
+  TreeNode* curr = x;
   while (curr) {
     if (!curr->left) {
       print(curr->key);
       curr = curr->right;
     } else {
       // Be careful that we couldn't use
-      // "Node* pred = treePredecessor(curr);" to find our predecessor,
+      // "TreeNode* pred = treePredecessor(curr);" to find our predecessor,
       // because some nodes' right pointers have been modified. Therefore, the
-      // "Node* treeMaximum(Node* x)" is broken now.
-      Node* pred = curr->left;
+      // "TreeNode* treeMaximum(TreeNode* x)" is broken now.
+      TreeNode* pred = curr->left;
       while (pred->right && pred->right != curr) pred = pred->right;
       if (pred->right) {
         pred->right = nullptr;
@@ -79,7 +80,7 @@ void iterativeInorderTreeWalkWithoutStack(Node* x) {
   }
 }
 
-void preorderTreeWalk(Node* x) {
+void preorderTreeWalk(TreeNode* x) {
   if (x != nullptr) {
     print(x->key);
     preorderTreeWalk(x->left);
@@ -87,7 +88,7 @@ void preorderTreeWalk(Node* x) {
   }
 }
 
-void postorderTreeWalk(Node* x) {
+void postorderTreeWalk(TreeNode* x) {
   if (x != nullptr) {
     postorderTreeWalk(x->left);
     postorderTreeWalk(x->right);

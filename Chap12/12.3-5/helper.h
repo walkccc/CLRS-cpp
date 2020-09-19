@@ -3,7 +3,7 @@
 
 #include "../../print.h"
 
-Node* treeSearch(Node* x, int k) {
+TreeNode* treeSearch(TreeNode* x, int k) {
   if (x == nullptr || k == x->key) return x;
   if (k < x->key)
     return treeSearch(x->left, k);
@@ -11,17 +11,17 @@ Node* treeSearch(Node* x, int k) {
     return treeSearch(x->right, k);
 }
 
-Node* treeMinimum(Node* x) {
+TreeNode* treeMinimum(TreeNode* x) {
   while (x->left != nullptr) x = x->left;
   return x;
 }
 
-Node* treeMaximum(Node* x) {
+TreeNode* treeMaximum(TreeNode* x) {
   while (x->right != nullptr) x = x->right;
   return x;
 }
 
-void inorderTreeWalk(Node*& x) {
+void inorderTreeWalk(TreeNode*& x) {
   if (x != nullptr) {
     inorderTreeWalk(x->left);
     print(x->key);
@@ -29,7 +29,7 @@ void inorderTreeWalk(Node*& x) {
   }
 }
 
-void preorderTreeWalk(Node*& x) {
+void preorderTreeWalk(TreeNode*& x) {
   if (x != nullptr) {
     print(x->key);
     preorderTreeWalk(x->left);
@@ -37,7 +37,7 @@ void preorderTreeWalk(Node*& x) {
   }
 }
 
-void postorderTreeWalk(Node*& x) {
+void postorderTreeWalk(TreeNode*& x) {
   if (x != nullptr) {
     postorderTreeWalk(x->left);
     postorderTreeWalk(x->right);

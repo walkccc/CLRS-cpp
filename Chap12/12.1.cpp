@@ -1,4 +1,5 @@
 #include "12.1.h"
+
 #include "../print.h"
 
 using namespace CLRS::CH12;
@@ -8,12 +9,12 @@ int main() {
 
   cout << "Initialize a binary search tree (root) as Figure 12.1 (a)\n";
   // Initialize the BST
-  Node* root = new Node(6);
-  root->left = new Node(5);
-  root->left->left = new Node(2);
-  root->left->right = new Node(5);
-  root->right = new Node(7);
-  root->right->right = new Node(8);
+  TreeNode* root = new TreeNode(6);
+  root->left = new TreeNode(5);
+  root->left->left = new TreeNode(2);
+  root->left->right = new TreeNode(5);
+  root->right = new TreeNode(7);
+  root->right->right = new TreeNode(8);
 
   // Connect the parent pointers
   root->left->p = root;

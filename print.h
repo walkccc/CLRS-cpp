@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+
 #include "./Chap06/Heap.h"
 #include "./Chap10/List.h"
 #include "./Chap10/Queue.h"
@@ -53,7 +54,7 @@ void print(Stack<T>& S) {
 
 template <typename T>
 void print(List<T>& L) {
-  for (Node<T>* curr = L.head; curr; curr = curr->next) {
+  for (ListNode<T>* curr = L.head; curr; curr = curr->next) {
     cout << curr->key << " ";
   }
   cout << "\n";
@@ -61,7 +62,7 @@ void print(List<T>& L) {
 
 template <typename T>
 void print(List_<T>& L) {
-  for (Node<T>* curr = L.nil->next; curr != L.nil; curr = curr->next) {
+  for (ListNode<T>* curr = L.nil->next; curr != L.nil; curr = curr->next) {
     cout << curr->key << " ";
   }
   cout << "\n";

@@ -19,9 +19,9 @@
 
 namespace CLRS {
 namespace CH12 {
-void treeInsert(BST& T, Node* z) {
-  Node* y = new Node(0);
-  Node* x = T.root;
+void treeInsert(BST& T, TreeNode* z) {
+  TreeNode* y = new TreeNode(0);
+  TreeNode* x = T.root;
   while (x != nullptr) {
     y = x;
     if (z->key < x->key)
@@ -38,7 +38,7 @@ void treeInsert(BST& T, Node* z) {
     y->right = z;
 }
 
-void transplant(BST& T, Node* u, Node* v) {
+void transplant(BST& T, TreeNode* u, TreeNode* v) {
   if (u->p == nullptr)
     T.root = v;
   else if (u == u->p->left)
@@ -48,13 +48,13 @@ void transplant(BST& T, Node* u, Node* v) {
   if (v != nullptr) v->p = u->p;
 }
 
-void treeDelete(BST& T, Node* z) {
+void treeDelete(BST& T, TreeNode* z) {
   if (z->left == nullptr)
     transplant(T, z, z->right);
   else if (z->right == nullptr)
     transplant(T, z, z->left);
   else {
-    Node* y = treeMinimum(z->right);
+    TreeNode* y = treeMinimum(z->right);
     if (y->p != z) {
       transplant(T, y, y->right);
       y->right = z->right;
@@ -66,7 +66,7 @@ void treeDelete(BST& T, Node* z) {
   }
 }
 
-void recursiveTreeInsert(Node*& root, Node* z) {
+void recursiveTreeInsert(TreeNode*& root, TreeNode* z) {
   if (root == nullptr) {
     root = z;
     return;

@@ -21,8 +21,8 @@ vector<List<T>> transpose(vector<List<T>>& adj) {
   vector<List<T>> adj_(adj.size());
 
   for (int u = 0; u < adj.size(); u++)
-    for (Node<T>* v = adj[u].head; v; v = v->next)
-      listInsert(adj_[v->key], new Node<T>(u));
+    for (ListNode<T>* v = adj[u].head; v; v = v->next)
+      listInsert(adj_[v->key], new ListNode<T>(u));
 
   return adj_;
 }
@@ -35,10 +35,10 @@ vector<List<T>> equivalentUndirectedGraph(vector<List<T>>& adj) {
   vector<vector<bool>> M(n, vector<bool>(n));
 
   for (int u = 0; u < n; u++)
-    for (Node<T>* v = adj[u].head; v; v = v->next)
+    for (ListNode<T>* v = adj[u].head; v; v = v->next)
       if (!M[u][v->key] && u != v->key) {
         M[u][v->key] = true;
-        listInsert(adj_[u], new Node<T>(v->key));
+        listInsert(adj_[u], new ListNode<T>(v->key));
       }
 
   return adj_;

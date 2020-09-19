@@ -1,10 +1,10 @@
 #ifndef BST_h
 #define BST_h
 
-#include "Node.h"
+#include "TreeNode.h"
 
 struct BST {
-  Node* root;
+  TreeNode* root;
 };
 
 #endif

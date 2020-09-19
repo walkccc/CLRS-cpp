@@ -2,17 +2,17 @@
 #define List_h
 
 template <typename T>
-class Node {
+class ListNode {
  public:
-  Node(const T);
+  ListNode(const T);
 
   T key;
-  Node* prev;
-  Node* next;
+  ListNode* prev;
+  ListNode* next;
 };
 
 template <typename T>
-Node<T>::Node(const T key) {
+ListNode<T>::ListNode(const T key) {
   this->key = key;
   prev = nullptr;
   next = nullptr;
@@ -21,7 +21,7 @@ Node<T>::Node(const T key) {
 template <typename T>
 class List {
  public:
-  Node<T>* head;
+  ListNode<T>* head;
 };
 
 template <typename T>
@@ -29,7 +29,7 @@ class List_ {
  public:
   List_();
 
-  Node<T>* nil = new Node<T>(0);
+  ListNode<T>* nil = new ListNode<T>(0);
 };
 
 template <typename T>

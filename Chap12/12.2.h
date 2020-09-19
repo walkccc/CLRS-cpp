@@ -1,4 +1,4 @@
-#include "Node.h"
+#include "TreeNode.h"
 
 // [Page 290]
 //   TREE-SEARCH(x, k)
@@ -31,7 +31,7 @@
 
 namespace CLRS {
 namespace CH12 {
-Node* treeSearch(Node* x, int k) {
+TreeNode* treeSearch(TreeNode* x, int k) {
   if (x == nullptr || k == x->key) return x;
   if (k < x->key)
     return treeSearch(x->left, k);
@@ -39,7 +39,7 @@ Node* treeSearch(Node* x, int k) {
     return treeSearch(x->right, k);
 }
 
-Node* iterateTreeSearch(Node* x, int k) {
+TreeNode* iterateTreeSearch(TreeNode* x, int k) {
   while (x != nullptr && k != x->key) {
     if (k < x->key)
       x = x->left;
@@ -49,19 +49,19 @@ Node* iterateTreeSearch(Node* x, int k) {
   return x;
 }
 
-Node* treeMinimum(Node* x) {
+TreeNode* treeMinimum(TreeNode* x) {
   while (x->left != nullptr) x = x->left;
   return x;
 }
 
-Node* treeMaximum(Node* x) {
+TreeNode* treeMaximum(TreeNode* x) {
   while (x->right != nullptr) x = x->right;
   return x;
 }
 
-Node* treeSuccessor(Node* x) {
+TreeNode* treeSuccessor(TreeNode* x) {
   if (x->right != nullptr) return treeMinimum(x->right);
-  Node* y = x->p;
+  TreeNode* y = x->p;
   while (y != nullptr && x == y->right) {
     x = y;
     y = y->p;
@@ -69,23 +69,23 @@ Node* treeSuccessor(Node* x) {
   return y;
 }
 
-Node* recursiveTreeMinimum(Node* x) {
+TreeNode* recursiveTreeMinimum(TreeNode* x) {
   if (x->left != nullptr)
     return recursiveTreeMinimum(x->left);
   else
     return x;
 }
 
-Node* recursiveTreeMaximum(Node* x) {
+TreeNode* recursiveTreeMaximum(TreeNode* x) {
   if (x->right != nullptr)
     return recursiveTreeMaximum(x->right);
   else
     return x;
 }
 
-Node* treePredecessor(Node* x) {
+TreeNode* treePredecessor(TreeNode* x) {
   if (x->left != nullptr) return treeMaximum(x->left);
-  Node* y = x->p;
+  TreeNode* y = x->p;
   while (y != nullptr && x == y->left) {
     x = y;
     y = y->p;

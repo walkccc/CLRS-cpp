@@ -29,8 +29,8 @@
 namespace CLRS {
 namespace CH10 {
 template <typename T>
-Node<T>* listSearch(List<T>& L, T k) {
-  Node<T>* x = L.head;
+ListNode<T>* listSearch(List<T>& L, T k) {
+  ListNode<T>* x = L.head;
   while (x != nullptr and x->key != k) {
     x = x->next;
   }
@@ -38,7 +38,7 @@ Node<T>* listSearch(List<T>& L, T k) {
 }
 
 template <typename T>
-void listInsert(List<T>& L, Node<T>* x) {
+void listInsert(List<T>& L, ListNode<T>* x) {
   x->next = L.head;
   if (L.head != nullptr) {
     L.head->prev = x;
@@ -48,7 +48,7 @@ void listInsert(List<T>& L, Node<T>* x) {
 }
 
 template <typename T>
-void listDelete(List<T>& L, Node<T>* x) {
+void listDelete(List<T>& L, ListNode<T>* x) {
   if (x->prev != nullptr)
     x->prev->next = x->next;
   else
@@ -59,8 +59,8 @@ void listDelete(List<T>& L, Node<T>* x) {
 }
 
 template <typename T>
-Node<T>* listSearch_(List_<T>& L, T k) {
-  Node<T>* x = L.nil->next;
+ListNode<T>* listSearch_(List_<T>& L, T k) {
+  ListNode<T>* x = L.nil->next;
   while (x != L.nil and x->key != k) {
     x = x->next;
   }
@@ -68,7 +68,7 @@ Node<T>* listSearch_(List_<T>& L, T k) {
 }
 
 template <typename T>
-void listInsert_(List_<T>& L, Node<T>* x) {
+void listInsert_(List_<T>& L, ListNode<T>* x) {
   x->next = L.nil->next;
   L.nil->next->prev = x;
   L.nil->next = x;
@@ -76,7 +76,7 @@ void listInsert_(List_<T>& L, Node<T>* x) {
 }
 
 template <typename T>
-void listDelete_(List_<T>& L, Node<T>* x) {
+void listDelete_(List_<T>& L, ListNode<T>* x) {
   x->prev->next = x->next;
   x->next->prev = x->prev;
 }
