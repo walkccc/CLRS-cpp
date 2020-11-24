@@ -6,9 +6,8 @@ Matrix<T>::Matrix(int rows, int cols) : rows(rows), cols(cols) {
 }
 
 template <typename T>
-Matrix<T>::Matrix(const Matrix<T>& matrix) {
-  rows = matrix.rows;
-  cols = matrix.cols;
+Matrix<T>::Matrix(const Matrix<T>& matrix)
+    : rows(matrix.rows), cols(matrix.cols) {
   allocateMemories();
   for (int i = 0; i < rows; i++) {
     for (int j = 0; j < cols; j++) {
@@ -18,9 +17,8 @@ Matrix<T>::Matrix(const Matrix<T>& matrix) {
 }
 
 template <typename T>
-Matrix<T>::Matrix(const vector<vector<T>>& vec) {
-  this->rows = (int)vec.size();
-  this->cols = (int)vec[0].size();
+Matrix<T>::Matrix(const std::vector<std::vector<T>>& vec)
+    : rows(vec.size()), cols(vec[0].size()) {
   allocateMemories();
   for (int i = 0; i < rows; i++) {
     for (int j = 0; j < cols; j++) {
@@ -30,7 +28,7 @@ Matrix<T>::Matrix(const vector<vector<T>>& vec) {
 }
 
 template <typename T>
-Matrix<T> Matrix<T>::get11() {
+Matrix<T> Matrix<T>::get11() const {
   Matrix m(rows / 2, cols / 2);
   for (int i = 0; i < rows / 2; i++) {
     for (int j = 0; j < cols / 2; j++) {
@@ -41,7 +39,7 @@ Matrix<T> Matrix<T>::get11() {
 }
 
 template <typename T>
-Matrix<T> Matrix<T>::get12() {
+Matrix<T> Matrix<T>::get12() const {
   Matrix m(rows / 2, cols - cols / 2);
   for (int i = 0; i < rows / 2; i++) {
     for (int j = 0; j < cols - cols / 2; j++) {
@@ -52,7 +50,7 @@ Matrix<T> Matrix<T>::get12() {
 }
 
 template <typename T>
-Matrix<T> Matrix<T>::get21() {
+Matrix<T> Matrix<T>::get21() const {
   Matrix m(rows - rows / 2, cols / 2);
   for (int i = 0; i < rows - rows / 2; i++) {
     for (int j = 0; j < cols / 2; j++) {
@@ -63,7 +61,7 @@ Matrix<T> Matrix<T>::get21() {
 }
 
 template <typename T>
-Matrix<T> Matrix<T>::get22() {
+Matrix<T> Matrix<T>::get22() const {
   Matrix m(rows - rows / 2, cols - cols / 2);
   for (int i = 0; i < rows - rows / 2; i++) {
     for (int j = 0; j < cols - cols / 2; j++) {
@@ -74,7 +72,7 @@ Matrix<T> Matrix<T>::get22() {
 }
 
 template <typename T>
-Matrix<T> operator+(Matrix<T> lhs, Matrix<T> rhs) {
+Matrix<T> operator+(const Matrix<T>& lhs, const Matrix<T>& rhs) {
   Matrix<T> res(lhs);
   for (int i = 0; i < res.rows; i++) {
     for (int j = 0; j < res.cols; j++) {
@@ -85,7 +83,7 @@ Matrix<T> operator+(Matrix<T> lhs, Matrix<T> rhs) {
 }
 
 template <typename T>
-Matrix<T> operator-(Matrix<T> lhs, Matrix<T> rhs) {
+Matrix<T> operator-(const Matrix<T>& lhs, const Matrix<T>& rhs) {
   Matrix<T> res(lhs);
   for (int i = 0; i < res.rows; i++) {
     for (int j = 0; j < res.cols; j++) {
@@ -96,7 +94,7 @@ Matrix<T> operator-(Matrix<T> lhs, Matrix<T> rhs) {
 }
 
 template <typename T>
-Matrix<T> operator*(const Matrix<T> lhs, const Matrix<T> rhs) {
+Matrix<T> operator*(const Matrix<T>& lhs, const Matrix<T>& rhs) {
   Matrix<T> res(lhs.rows, rhs.cols);
   for (int i = 0; i < res.rows; i++) {
     for (int j = 0; j < res.cols; j++) {
@@ -140,5 +138,7 @@ void Matrix<T>::allocateMemories() {
   p = new T*[rows];
   for (int i = 0; i < rows; i++) {
     p[i] = new T[cols];
+    for (int j = 0; j < cols; ++j)
+      p[i][j] = 0;
   }
 }

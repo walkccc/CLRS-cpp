@@ -24,19 +24,18 @@ using std::vector;
 namespace CLRS {
 namespace CH4 {
 template <typename T>
-class Ans {
- public:
+struct Ans {
   int low;
   int high;
   T sum;
 };
 
 template <typename T>
-Ans<T> findMaxCrossingSubarray(vector<T>& A, int low, int mid, int high) {
+Ans<T> findMaxCrossingSubarray(const vector<T>& A, int low, int mid, int high) {
   int maxLeft = 0;
   T leftSum = INT_MIN;
   T sum = 0;
-  for (int i = mid; i >= low; i--) {
+  for (int i = mid; i >= low; --i) {
     sum = sum + A[i];
     if (sum > leftSum) {
       leftSum = sum;
@@ -46,7 +45,7 @@ Ans<T> findMaxCrossingSubarray(vector<T>& A, int low, int mid, int high) {
   int maxRight = 0;
   T rightSum = INT_MIN;
   sum = 0;
-  for (int j = mid + 1; j <= high; j++) {
+  for (int j = mid + 1; j <= high; ++j) {
     sum = sum + A[j];
     if (sum > rightSum) {
       rightSum = sum;
@@ -57,11 +56,11 @@ Ans<T> findMaxCrossingSubarray(vector<T>& A, int low, int mid, int high) {
 }
 
 template <typename T>
-Ans<T> findMaximumSubarray(vector<T>& A, int low, int high) {
+Ans<T> findMaximumSubarray(const vector<T>& A, int low, int high) {
   if (high == low) {
     return {low, high, A[low]};
   } else {
-    int mid = (low + high) / 2;
+    const int mid = (low + high) / 2;
     Ans<T> left = findMaximumSubarray(A, low, mid);
     Ans<T> right = findMaximumSubarray(A, mid + 1, high);
     Ans<T> cross = findMaxCrossingSubarray(A, low, mid, high);
@@ -75,14 +74,13 @@ Ans<T> findMaximumSubarray(vector<T>& A, int low, int high) {
 }
 
 template <typename T>
-Ans<T> bruteForceFindMaximumSubarray(vector<T>& A) {
-  int n = A.size();
+Ans<T> bruteForceFindMaximumSubarray(const vector<T>& A) {
   int low = 0;
   int high = 0;
   T maxSum = INT_MIN;
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < A.size(); ++i) {
     T sum = 0;
-    for (int j = i; j < n; j++) {
+    for (int j = i; j < A.size(); ++j) {
       sum = sum + A[j];
       if (sum > maxSum) {
         maxSum = sum;
@@ -96,12 +94,11 @@ Ans<T> bruteForceFindMaximumSubarray(vector<T>& A) {
 
 template <typename T>
 Ans<T> iterativeFindMaximumSubarray(vector<T>& A) {
-  int n = A.size();
   int low = 0;
   int high = 0;
   T maxSum = INT_MIN;
   T sum = INT_MIN;
-  for (int j = 0; j < n; j++) {
+  for (int j = 0; j < A.size(); ++j) {
     int currentLow;
     int currentHigh = j;
     if (sum > 0) {

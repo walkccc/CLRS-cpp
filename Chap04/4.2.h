@@ -22,14 +22,15 @@ using std::vector;
 namespace CLRS {
 namespace CH4 {
 template <typename T>
-Matrix<T> squareMatrixMultiply(Matrix<T> A, Matrix<T> B) {
+Matrix<T> squareMatrixMultiply(const Matrix<T>& A, const Matrix<T>& B) {
   return A * B;
 }
 
 template <typename T>
-Matrix<T> squareMatrixMultiplyRecursive(Matrix<T> A, Matrix<T> B) {
-  int m = A.getRows();
-  int n = A.getCols();
+Matrix<T> squareMatrixMultiplyRecursive(const Matrix<T>& A,
+                                        const Matrix<T>& B) {
+  const int m = A.getRows();
+  const int n = A.getCols();
 
   Matrix<T> C(m, n);
 
@@ -52,8 +53,8 @@ Matrix<T> squareMatrixMultiplyRecursive(Matrix<T> A, Matrix<T> B) {
 
 template <typename T>
 Matrix<T> strassen(Matrix<T> A, Matrix<T> B) {
-  int m = A.getRows();
-  int n = A.getCols();
+  const int m = A.getRows();
+  const int n = A.getCols();
 
   if (n == 1)
     return Matrix<T>({{A.getP()[0][0] * B.getP()[0][0]}});
