@@ -29,7 +29,8 @@ int heapMaximum(Heap<T>& A) {
 
 template <typename T>
 T heapExtractMax(Heap<T>& A) {
-  if (A.heapsize < 1) throw("heap underflow");
+  if (A.heapsize < 1)
+    throw("heap underflow");
   T max = A[0];
   A[0] = A[A.heapsize - 1];
   A.heapsize--;
@@ -39,7 +40,8 @@ T heapExtractMax(Heap<T>& A) {
 
 template <typename T>
 void heapIncreaseKey(Heap<T>& A, int i, T key) {
-  if (key < A[i]) throw("new key is smaller than current key");
+  if (key < A[i])
+    throw("new key is smaller than current key");
   A[i] = key;
   while (i > 0 && A[parent(i)] < A[i]) {
     swap(A[i], A[parent(i)]);

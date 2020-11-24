@@ -119,13 +119,17 @@ Matrix<T> combine(const Matrix<T>& m11, const Matrix<T>& m12,
   int y = m / 2;
   int x = n / 2;
   for (int i = 0; i < y; i++) {
-    for (int j = 0; j < x; j++) matrix.p[i][j] = m11.p[i][j];
-    for (int j = 0; j < n - x; j++) matrix.p[i][j + x] = m12.p[i][j];
+    for (int j = 0; j < x; j++)
+      matrix.p[i][j] = m11.p[i][j];
+    for (int j = 0; j < n - x; j++)
+      matrix.p[i][j + x] = m12.p[i][j];
   }
 
   for (int i = 0; i < m - y; i++) {
-    for (int j = 0; j < x; j++) matrix.p[i + y][j] = m21.p[i][j];
-    for (int j = 0; j < x; j++) matrix.p[i + y][j + x] = m22.p[i][j];
+    for (int j = 0; j < x; j++)
+      matrix.p[i + y][j] = m21.p[i][j];
+    for (int j = 0; j < x; j++)
+      matrix.p[i + y][j + x] = m22.p[i][j];
   }
 
   return matrix;

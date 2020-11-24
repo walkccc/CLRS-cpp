@@ -2,6 +2,7 @@
 #define ch22_3_10_h
 
 #include <stack>
+
 #include "../Graph.h"
 
 #define WHITE "WHITE"
@@ -46,7 +47,8 @@ void dfs(Graph& G) {
   }
   time = 0;
   for (Vertex* u : G.V)
-    if (u->color == WHITE) dfsVisitPrint(G, u);
+    if (u->color == WHITE)
+      dfsVisitPrint(G, u);
 }
 }  // namespace CH22
 }  // namespace CLRS

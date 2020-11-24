@@ -2,6 +2,7 @@
 #define ch7_1_h
 
 #include <vector>
+
 #include "../print.h"
 
 using std::swap;

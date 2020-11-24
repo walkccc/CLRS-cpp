@@ -2,6 +2,7 @@
 #define prob7_4_h
 
 #include <vector>
+
 #include "../7.1.h"
 
 using std::swap;

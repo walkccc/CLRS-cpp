@@ -17,7 +17,8 @@ int RANDOM() {
 }
 
 int random(int a, int b) {
-  if (a == b) return a;
+  if (a == b)
+    return a;
   double mid = (a + b) / 2;
   int r = RANDOM();
   if (r == 0)

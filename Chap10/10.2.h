@@ -1,8 +1,8 @@
 #ifndef ch10_2_h
 #define ch10_2_h
 
-#include "List.h"
 #include "../print.h"
+#include "List.h"
 
 // [Page 237]
 //   LIST-SEARCH(L, k)

@@ -33,8 +33,10 @@ void merge(vector<T>& A, int p, int q, int r) {
   vector<T> L(n1 + 1), R(n2 + 1);
   // The indices here are different from the book because the index of C++
   // starts from 0 instead of 1.
-  for (int i = 0; i < n1; i++) L[i] = A[p + i];
-  for (int j = 0; j < n2; j++) R[j] = A[q + j + 1];
+  for (int i = 0; i < n1; i++)
+    L[i] = A[p + i];
+  for (int j = 0; j < n2; j++)
+    R[j] = A[q + j + 1];
   L[n1] = INT_MAX;
   R[n2] = INT_MAX;
   int i = 0;
@@ -56,8 +58,10 @@ void mergeWithoutSentinels(vector<T>& A, int p, int q, int r) {
   int n1 = q - p + 1;
   int n2 = r - q;
   vector<T> L(n1 + 1), R(n2 + 1);
-  for (int i = 0; i < n1; i++) L[i] = A[p + i];
-  for (int j = 0; j < n2; j++) R[j] = A[q + j + 1];
+  for (int i = 0; i < n1; i++)
+    L[i] = A[p + i];
+  for (int j = 0; j < n2; j++)
+    R[j] = A[q + j + 1];
   int i = 0;
   int j = 0;
   for (int k = p; k <= r; k++) {
@@ -102,7 +106,8 @@ int iterativeBinarySearch(vector<int>& A, int v, int low, int high) {
 }
 
 int recursiveBinarySearch(vector<int>& A, int v, int low, int high) {
-  if (low > high) return -1;
+  if (low > high)
+    return -1;
   int mid = (low + high) / 2;
   if (v == A[mid])
     return mid;

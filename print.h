@@ -11,12 +11,16 @@
 
 using namespace std;
 
-void print(int val) { cout << val << " "; }
+void print(int val) {
+  cout << val << " ";
+}
 
 void print(string str) {
-  for (int i = 0; i < str.length() + 2; i++) cout << "-";
+  for (int i = 0; i < str.length() + 2; i++)
+    cout << "-";
   cout << "\n " << str << " \n";
-  for (int i = 0; i < str.length() + 2; i++) cout << "-";
+  for (int i = 0; i < str.length() + 2; i++)
+    cout << "-";
   cout << endl;
 }
 

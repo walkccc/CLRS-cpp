@@ -45,7 +45,8 @@ void transplant(BST& T, TreeNode* u, TreeNode* v) {
     u->p->left = v;
   else
     u->p->right = v;
-  if (v != nullptr) v->p = u->p;
+  if (v != nullptr)
+    v->p = u->p;
 }
 
 void treeDelete(BST& T, TreeNode* z) {

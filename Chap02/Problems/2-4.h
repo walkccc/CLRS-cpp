@@ -19,8 +19,10 @@ int mergeInversions(vector<T>& A, int p, int q, int r) {
   int n1 = q - p + 1;
   int n2 = r - q;
   vector<int> L(n1 + 1), R(n2 + 1);
-  for (int i = 0; i < n1; i++) L[i] = A[p + i];
-  for (int j = 0; j < n2; j++) R[j] = A[q + j + 1];
+  for (int i = 0; i < n1; i++)
+    L[i] = A[p + i];
+  for (int j = 0; j < n2; j++)
+    R[j] = A[q + j + 1];
   L[n1] = INT_MAX;
   R[n2] = INT_MAX;
   int i = 0;

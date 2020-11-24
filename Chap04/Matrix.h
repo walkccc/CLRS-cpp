@@ -22,11 +22,19 @@ class Matrix {
   Matrix<T> get21();
   Matrix<T> get22();
 
-  int getRows() { return rows; }
-  int getCols() { return cols; }
-  T** getP() { return p; }
+  int getRows() {
+    return rows;
+  }
+  int getCols() {
+    return cols;
+  }
+  T** getP() {
+    return p;
+  }
 
-  inline T& operator()(int x, int y) { return p[x][y]; }
+  inline T& operator()(int x, int y) {
+    return p[x][y];
+  }
 
   template <class U>
   friend Matrix<U> operator+(const Matrix<U> lhs, const Matrix<U> rhs);

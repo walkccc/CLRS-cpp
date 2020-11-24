@@ -32,7 +32,8 @@
 namespace CLRS {
 namespace CH12 {
 TreeNode* treeSearch(TreeNode* x, int k) {
-  if (x == nullptr || k == x->key) return x;
+  if (x == nullptr || k == x->key)
+    return x;
   if (k < x->key)
     return treeSearch(x->left, k);
   else
@@ -50,17 +51,20 @@ TreeNode* iterateTreeSearch(TreeNode* x, int k) {
 }
 
 TreeNode* treeMinimum(TreeNode* x) {
-  while (x->left != nullptr) x = x->left;
+  while (x->left != nullptr)
+    x = x->left;
   return x;
 }
 
 TreeNode* treeMaximum(TreeNode* x) {
-  while (x->right != nullptr) x = x->right;
+  while (x->right != nullptr)
+    x = x->right;
   return x;
 }
 
 TreeNode* treeSuccessor(TreeNode* x) {
-  if (x->right != nullptr) return treeMinimum(x->right);
+  if (x->right != nullptr)
+    return treeMinimum(x->right);
   TreeNode* y = x->p;
   while (y != nullptr && x == y->right) {
     x = y;
@@ -84,7 +88,8 @@ TreeNode* recursiveTreeMaximum(TreeNode* x) {
 }
 
 TreeNode* treePredecessor(TreeNode* x) {
-  if (x->left != nullptr) return treeMaximum(x->left);
+  if (x->left != nullptr)
+    return treeMaximum(x->left);
   TreeNode* y = x->p;
   while (y != nullptr && x == y->left) {
     x = y;

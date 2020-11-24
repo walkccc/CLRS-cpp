@@ -1,4 +1,5 @@
 #include "10.1.h"
+
 #include "../print.h"
 
 using namespace CLRS::CH10;

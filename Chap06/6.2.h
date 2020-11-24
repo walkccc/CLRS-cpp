@@ -28,7 +28,8 @@ void maxHeapify(Heap<T>& A, int i) {
     largest = l;
   else
     largest = i;
-  if (r <= A.heapsize - 1 && A[r] > A[largest]) largest = r;
+  if (r <= A.heapsize - 1 && A[r] > A[largest])
+    largest = r;
   if (largest != i) {
     swap(A[i], A[largest]);
     maxHeapify(A, largest);
@@ -44,7 +45,8 @@ void minHeapify(Heap<T>& A, int i) {
     smallest = l;
   else
     smallest = i;
-  if (r <= A.heapsize - 1 && A[r] < A[smallest]) smallest = r;
+  if (r <= A.heapsize - 1 && A[r] < A[smallest])
+    smallest = r;
   if (smallest != i) {
     swap(A[i], A[smallest]);
     minHeapify(A, smallest);
@@ -61,8 +63,10 @@ void iterativeMaxHeapify(Heap<T>& A, int i) {
       largest = l;
     else
       largest = i;
-    if (r <= A.heapsize - 1 && A[r] > A[largest]) largest = r;
-    if (largest == i) return;
+    if (r <= A.heapsize - 1 && A[r] > A[largest])
+      largest = r;
+    if (largest == i)
+      return;
     swap(A[i], A[largest]);
     i = largest;
   }

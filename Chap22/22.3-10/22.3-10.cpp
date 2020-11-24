@@ -1,4 +1,5 @@
 #include "22.3-10.h"
+
 #include "../../print.h"
 
 using namespace CLRS::CH22;

@@ -2,6 +2,7 @@
 #define ch4_2_h
 
 #include <vector>
+
 #include "Matrix.cpp"
 
 using std::vector;
@@ -54,7 +55,8 @@ Matrix<T> strassen(Matrix<T> A, Matrix<T> B) {
   int m = A.getRows();
   int n = A.getCols();
 
-  if (n == 1) return Matrix<T>({{A.getP()[0][0] * B.getP()[0][0]}});
+  if (n == 1)
+    return Matrix<T>({{A.getP()[0][0] * B.getP()[0][0]}});
 
   Matrix<T> C(m, n);
   Matrix<T> A11 = A.get11();

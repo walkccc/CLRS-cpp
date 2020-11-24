@@ -51,7 +51,8 @@ void nonincreasingInsertionSort(vector<T>& A) {
 template <typename T>
 int linearSearch(vector<T>& A, int v) {
   for (int i = 0; i < A.size(); i++)
-    if (A[i] == v) return i;
+    if (A[i] == v)
+      return i;
   return -1;
 }
 }  // namespace CH2

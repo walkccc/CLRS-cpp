@@ -20,15 +20,18 @@
 namespace CLRS {
 namespace CH12 {
 TreeNode* parent(BST& T, TreeNode* x) {
-  if (x == T.root) return nullptr;
+  if (x == T.root)
+    return nullptr;
   TreeNode* y = treeMaximum(x)->succ;
   if (y == nullptr) {
     y = T.root;
   } else {
-    if (y->left == x) return y;
+    if (y->left == x)
+      return y;
     y = y->left;
   }
-  while (y->right != x) y = y->right;
+  while (y->right != x)
+    y = y->right;
   return y;
 }
 
@@ -51,7 +54,8 @@ void treeInsert(BST& T, TreeNode* z) {
   } else if (z->key < y->key) {
     y->left = z;
     z->succ = y;
-    if (pred != nullptr) pred->succ = z;
+    if (pred != nullptr)
+      pred->succ = z;
   } else {
     y->right = z;
     z->succ = y->succ;
@@ -70,11 +74,13 @@ void transplant(BST& T, TreeNode* u, TreeNode* v) {
 }
 
 TreeNode* treePredecessor(BST& T, TreeNode* x) {
-  if (x->left != nullptr) return treeMaximum(x->left);
+  if (x->left != nullptr)
+    return treeMaximum(x->left);
   TreeNode* y = T.root;
   TreeNode* pred = nullptr;
   while (y != nullptr) {
-    if (y->key == x->key) break;
+    if (y->key == x->key)
+      break;
     if (y->key < x->key) {
       pred = y;
       y = y->right;

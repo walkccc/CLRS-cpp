@@ -2,6 +2,7 @@
 #define ch22_3_12_h
 
 #include <stack>
+
 #include "../Graph.h"
 
 #define WHITE "WHITE"

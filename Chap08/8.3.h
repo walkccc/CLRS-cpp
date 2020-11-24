@@ -3,6 +3,7 @@
 
 #include <cmath>
 #include <vector>
+
 #include "../print.h"
 
 using std::pow;

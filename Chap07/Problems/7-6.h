@@ -2,6 +2,7 @@
 #define prob7_6_h
 
 #include <vector>
+
 #include "../../Chap05/5.1.h"
 #include "../7.1.h"
 
@@ -36,8 +37,10 @@ Interval findIntersection(vector<Interval>& A, int p, int r) {
   int b = A[r].b;
   for (int i = p; i <= r - 1; i++) {
     if (A[i].a <= b && A[i].b >= a) {
-      if (A[i].a > a) a = A[i].a;
-      if (A[i].b < b) b = A[i].b;
+      if (A[i].a > a)
+        a = A[i].a;
+      if (A[i].b < b)
+        b = A[i].b;
     }
   }
   return {a, b};

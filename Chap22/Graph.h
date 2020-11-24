@@ -17,8 +17,10 @@ class Vertex {
   int f = 0;
   int cc;
   Vertex* PI;
-  Vertex() : color(WHITE), d(INT_MAX), PI(nullptr) {}
-  Vertex(const string& name) : name(name) {}
+  Vertex() : color(WHITE), d(INT_MAX), PI(nullptr) {
+  }
+  Vertex(const string& name) : name(name) {
+  }
 };
 
 class Graph {

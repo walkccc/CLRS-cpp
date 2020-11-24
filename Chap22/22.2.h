@@ -45,7 +45,8 @@ void printGraph(Graph& G) {
     cout << "(i) ";
 
   for (int i = 0; i < G.V.size(); i++) {
-    if (i == 4) cout << endl << "    ";
+    if (i == 4)
+      cout << endl << "    ";
     cout << setw(5) << G.V[i]->color << " ";
 
     if (G.V[i]->d == INT_MAX)
@@ -72,7 +73,8 @@ void printQueue(Queue<Vertex*>& Q) {
 
 void bfs(Graph& G, Vertex* s) {
   for (Vertex* u : G.V) {
-    if (u == s) continue;
+    if (u == s)
+      continue;
     u->color = WHITE;
     u->d = INT_MAX;
     u->PI = nullptr;

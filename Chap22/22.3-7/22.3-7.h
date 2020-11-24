@@ -2,6 +2,7 @@
 #define ch22_3_7_h
 
 #include <stack>
+
 #include "../Graph.h"
 
 #define WHITE "WHITE"
@@ -16,7 +17,8 @@ namespace CLRS {
 namespace CH22 {
 void printGraph(Graph& G) {
   for (int i = 0; i < G.V.size(); i++) {
-    if (i > 0 && i % 3 == 0) cout << endl;
+    if (i > 0 && i % 3 == 0)
+      cout << endl;
     cout << setw(5) << G.V[i]->color << " ";
     cout << G.V[i]->name << " ";
 
@@ -35,7 +37,8 @@ void printGraph(Graph& G) {
     else
       cout << setw(2) << G.V[i]->f;
     cout << setw(2) << " ";
-    if (i == G.V.size() - 1) cout << endl << endl;
+    if (i == G.V.size() - 1)
+      cout << endl << endl;
   }
 }
 

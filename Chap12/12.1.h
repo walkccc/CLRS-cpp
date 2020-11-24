@@ -54,7 +54,8 @@ void iterativeInorderTreeWalkWithStack(TreeNode* x) {
 }
 
 void iterativeInorderTreeWalkWithoutStack(TreeNode* x) {
-  if (x == nullptr) return;
+  if (x == nullptr)
+    return;
 
   TreeNode* curr = x;
   while (curr) {
@@ -67,7 +68,8 @@ void iterativeInorderTreeWalkWithoutStack(TreeNode* x) {
       // because some nodes' right pointers have been modified. Therefore, the
       // "TreeNode* treeMaximum(TreeNode* x)" is broken now.
       TreeNode* pred = curr->left;
-      while (pred->right && pred->right != curr) pred = pred->right;
+      while (pred->right && pred->right != curr)
+        pred = pred->right;
       if (pred->right) {
         pred->right = nullptr;
         print(curr->key);

@@ -4,7 +4,8 @@
 #include "../../print.h"
 
 TreeNode* treeSearch(TreeNode* x, int k) {
-  if (x == nullptr || k == x->key) return x;
+  if (x == nullptr || k == x->key)
+    return x;
   if (k < x->key)
     return treeSearch(x->left, k);
   else
@@ -12,12 +13,14 @@ TreeNode* treeSearch(TreeNode* x, int k) {
 }
 
 TreeNode* treeMinimum(TreeNode* x) {
-  while (x->left != nullptr) x = x->left;
+  while (x->left != nullptr)
+    x = x->left;
   return x;
 }
 
 TreeNode* treeMaximum(TreeNode* x) {
-  while (x->right != nullptr) x = x->right;
+  while (x->right != nullptr)
+    x = x->right;
   return x;
 }
 
