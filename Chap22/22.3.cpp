@@ -5,7 +5,7 @@ using namespace CLRS::CH22;
 
 int main() {
   {
-    print(string("22.3 Depth-ﬁrst search"));
+    print(string("22.3 Depthfirst search"));
 
     cout << "Initialize a directed graph as Figure 22.4\n";
     Graph G;

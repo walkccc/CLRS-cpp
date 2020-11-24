@@ -4,7 +4,7 @@
 using namespace CLRS::CH22;
 
 int main() {
-  print(string("22.2 Breadth-ﬁrst search"));
+  print(string("22.2 Breadth-first search"));
 
   cout << "Initialize an undirected graph as Figure 22.3\n";
 
