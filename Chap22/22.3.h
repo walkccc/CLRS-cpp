@@ -16,8 +16,8 @@ namespace CH22 {
 int time;
 int iterationCounter = 0;
 
-void printGraph(Graph& G) {
-  iterationCounter++;
+void printGraph(const Graph& G) {
+  ++iterationCounter;
   if (iterationCounter == 1)
     cout << "(a) ";
   else if (iterationCounter == 2)
@@ -51,12 +51,12 @@ void printGraph(Graph& G) {
   else if (iterationCounter == 16)
     cout << "(p) ";
 
-  for (int i = 0; i < G.V.size(); i++) {
+  for (int i = 0; i < G.V.size(); ++i) {
     if (iterationCounter > 16 && i == 0)
       cout << "    ";
     if (i > 0 && i % 3 == 0)
       cout << endl << "    ";
-    cout << setw(5) << G.V[i]->color << " ";
+    cout << setw(5) << getString(G.V[i]->color) << " ";
     cout << G.V[i]->name << " ";
 
     if (G.V[i]->d == 0)
@@ -79,12 +79,11 @@ void printGraph(Graph& G) {
   }
 }
 
-void dfsVisit(Graph& G, Vertex* u) {
-  time++;
-  u->d = time;
+void dfsVisit(const Graph& G, Vertex* u) {
+  u->d = ++time;  // white vertex u has just been discovered
   u->color = GRAY;
   printGraph(G);
-  for (Vertex* v : G.Adj[u]) {
+  for (Vertex* v : G.Adj.at(u)) {  // explore edge (u, v)
     if (v->color == WHITE) {
       v->PI = u;
       dfsVisit(G, v);
@@ -92,13 +91,12 @@ void dfsVisit(Graph& G, Vertex* u) {
       printGraph(G);
     }
   }
-  u->color = BLACK;
-  time++;
-  u->f = time;
+  u->f = ++time;
+  u->color = BLACK;  // blacken u; it is finished
   printGraph(G);
 }
 
-void dfs(Graph& G) {
+void dfs(const Graph& G) {
   for (Vertex* u : G.V) {
     u->color = WHITE;
     u->PI = nullptr;

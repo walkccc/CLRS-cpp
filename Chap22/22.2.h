@@ -40,10 +40,10 @@ void printGraph(Graph& G) {
   else
     cout << "(i) ";
 
-  for (int i = 0; i < G.V.size(); i++) {
+  for (int i = 0; i < G.V.size(); ++i) {
     if (i == 4)
       cout << endl << "    ";
-    cout << setw(5) << G.V[i]->color << " ";
+    cout << setw(5) << getString(G.V[i]->color) << " ";
 
     if (G.V[i]->d == INT_MAX)
       cout << "∞";

@@ -20,7 +20,7 @@ template <typename T>
 vector<List<T>> transpose(vector<List<T>>& adj) {
   vector<List<T>> adj_(adj.size());
 
-  for (int u = 0; u < adj.size(); u++)
+  for (int u = 0; u < adj.size(); ++u)
     for (ListNode<T>* v = adj[u].head; v; v = v->next)
       listInsert(adj_[v->key], new ListNode<T>(u));
 
@@ -34,7 +34,7 @@ vector<List<T>> equivalentUndirectedGraph(vector<List<T>>& adj) {
   vector<List<T>> adj_(n);
   vector<vector<bool>> M(n, vector<bool>(n));
 
-  for (int u = 0; u < n; u++)
+  for (int u = 0; u < n; ++u)
     for (ListNode<T>* v = adj[u].head; v; v = v->next)
       if (!M[u][v->key] && u != v->key) {
         M[u][v->key] = true;

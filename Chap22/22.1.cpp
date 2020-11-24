@@ -5,7 +5,7 @@
 using namespace CLRS::CH22;
 
 void print(vector<List<int>>& adj) {
-  for (int i = 0; i < adj.size(); i++) {
+  for (int i = 0; i < adj.size(); ++i) {
     cout << i << " ";
     print(adj[i]);
   }
