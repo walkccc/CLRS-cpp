@@ -5,10 +5,6 @@
 #include "../print.h"
 #include "Graph.h"
 
-#define WHITE "WHITE"
-#define GRAY "GRAY"
-#define BLACK "BLACK"
-
 using namespace CLRS::CH10;
 
 // [Page 595]

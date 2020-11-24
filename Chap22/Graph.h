@@ -3,16 +3,18 @@
 
 #include <bits/stdc++.h>
 
-#define WHITE "WHITE"
-#define GRAY "GRAY"
-#define BLACK "BLACK"
+enum Color {
+  WHITE,
+  GRAY,
+  BLACK,
+};
 
 using namespace std;
 
 class Vertex {
  public:
   string name;
-  string color;
+  Color color;
   int d = 0;
   int f = 0;
   int cc;

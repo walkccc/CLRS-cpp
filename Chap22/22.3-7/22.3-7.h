@@ -5,10 +5,6 @@
 
 #include "../Graph.h"
 
-#define WHITE "WHITE"
-#define GRAY "GRAY"
-#define BLACK "BLACK"
-
 // [Page 611]
 //   DFS-STACK(G)
 //   - Time: O(V + E)

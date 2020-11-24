@@ -4,10 +4,6 @@
 #include "../print.h"
 #include "Graph.h"
 
-#define WHITE "WHITE"
-#define GRAY "GRAY"
-#define BLACK "BLACK"
-
 // [Page 604]
 //   DFS(G)
 //   - Time: O(V + E)
